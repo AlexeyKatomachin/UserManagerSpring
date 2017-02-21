@@ -8,7 +8,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -95,6 +96,7 @@ public class MySQLUserDAO implements UserDAO {
 
     private DriverManagerDataSource driverManagerDataSource(MySQLConnectionData connectionData) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(connectionData.getDriver());
         dataSource.setUrl(connectionData.getUrl());
         dataSource.setUsername(connectionData.getUser());
         dataSource.setPassword(connectionData.getPassword());

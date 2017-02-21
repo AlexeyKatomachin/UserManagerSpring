@@ -8,14 +8,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class MySQLConnectionData {
+        private String driver = "com.mysql.jdbc.Driver";
+
         @Value("jdbc:mysql://localhost:3366/userdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false")
-        private String url;
+        private String url = "jdbc:mysql://localhost:3366/userdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
 
         @Value("root")
-        private String user;
+        private String user = "root";
 
         @Value("alex1996")
-        private String password;
+        private String password = "alex1996";
 
         public String getUrl(){
                 return url;
@@ -27,6 +29,10 @@ public class MySQLConnectionData {
 
         public String getPassword() {
                 return password;
+        }
+
+        public String getDriver() {
+                return driver;
         }
 
 }
